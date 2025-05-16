@@ -1,50 +1,14 @@
-# React + TypeScript + Vite
+Raven Assessment Feedback
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Thank you for the opportunity to take the assessment for the Frontend Developer role. I appreciate the chance to demonstrate my skills through this practical task.
 
-Currently, two official plugins are available:
+I approached the assessment by setting up a development environment using React with Vite, which I chose for its fast compilation and development speed. In building the application, I followed the requirements closely, utilizing HTML, CSS, and React. For the charting functionality, I integrated the Recharts library, which provided the necessary visualization features. I initially considered using shadcn/ui, but opted against it since it's more tailored for TypeScript and Tailwind CSS, which were not part of the instructions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Responsiveness
+To ensure a responsive user experience, I implemented mobile-first design principles using CSS media queries. I also added a drawer component for the payment section to improve usability on smaller screens. Overall, I made sure all views were mobile-friendly and adaptable to different screen sizes.
 
-## Expanding the ESLint configuration
+API Integration
+Due to the limited time, I wasn't able to fully complete the API integration. One of the challenges I faced was the lack of sufficient or well-documented API endpoints, which consumed a significant amount of time. Despite that, I managed to begin the implementation. While it requires some debugging and refinement, I believe with additional time, I could have completed it as intended.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Overall, I found the assessment focused on building a cryptocurrency-related website, both engaging and insightful. It was a great opportunity to apply my frontend development skills in a real-world scenario, and I enjoyed working on it.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
