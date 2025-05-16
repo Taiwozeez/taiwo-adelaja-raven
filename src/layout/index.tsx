@@ -3,18 +3,18 @@
 
 
 
-import { ReactNode } from 'react';
+// import { ReactNode } from 'react';
 
-interface LayoutProps {
-  children: ReactNode;
-}
+// interface LayoutProps {
+//   children: ReactNode;
+// }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-  return (
-    <div>
-      {children}
-    </div>
-  )
-}
+// const Layout: React.FC<LayoutProps> = ({ children }) => {
+//   return (
+//     <div>
+//       {children}
+//     </div>
+//   )
+// }
 
-export default Layout
+// export default Layout

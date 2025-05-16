@@ -5,17 +5,1322 @@
 
 
 
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* App.css */
+/* Apply to the entire page */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #1C2127;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.main-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #1C2127;
+}
+
+/* Optional: Add some global styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Make sure the crypto card stands out on the dark background */
+/* .crypto-card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 } */
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c2127;
+  color: white;
+  padding: 12px 24px;
+  font-family: sans-serif;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.logo-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-weight: bold;
+}
+
+.vertical-divider {
+  height: 24px;
+  width: 1px;
+  background-color: #32383f;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.nav-links li:hover {
+  color: white;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  background-color: #2a2f36;
+  padding: 6px 12px;
+  border-radius: 20px;
+  gap: 8px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.icon:hover {
+  color: white;
+}
+
+.horizontal-divider {
+  height: 1px;
+  width: 100%;
+  background-color: #32383f;
+  margin: 0;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar-left .nav-links,
+  .navbar-right .profile {
+    display: none;
+  }
+
+  .navbar-left {
+    gap: 20px; /* Adjust spacing as needed */
+  }
+    .navbar-right {
+        gap: 10px;
+    }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon on mobile */
+  }
+  .navbar-right .profile{
+        display: flex;
+    }
+  .mobile-menu {
+        position: fixed; /* Or absolute, depending on your layout */
+        top: 60px; /* Adjust based on your navbar height */
+        left: 0;
+        width: 100%;
+        background-color: #1c2127; /* Match navbar background */
+        color: white;
+        padding: 16px;
+        z-index: 10; /* Ensure it's above other content */
+        border-bottom: 1px solid #32383f;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+    }
+
+    .mobile-nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-nav-links li {
+        cursor: pointer;
+        color: #aaa;
+        transition: color 0.2s;
+        padding: 10px;
+        border-bottom: 1px solid #32383f; /* Add a separator between links */
+    }
+
+  .mobile-nav-links li:last-child {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: none;
+      }
+  .mobile-nav-links li:hover{
+     background-color: #2a2f36;
+     border-radius: 5px;
+  }
+  .mobile-menu .profile{
+        display: none;
+    }
+}
+
+
+
+/* CryptoPriceCard.css */
+/* CryptoPriceCard.css */
+/* Coin Images Styles */
+.coin-images {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.coin-image {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  position: absolute;
+  object-fit: contain;
+  border: 1px solid #32383F;
+}
+
+.coin-image.btc {
+  z-index: 2;
+  left: 0;
+}
+
+.coin-image.usdt {
+  z-index: 1;
+  left: 16px;
+}
+
+/* Original Styles */
+.crypto-navbar {
+  display: flex;
+  align-items: center;
+  background-color: #20252B;
+  color: white;
+  padding: 12px 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  gap: 40px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: none;
+  margin: 20px auto 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px;
+}
+
+.pair-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  cursor: pointer;
+}
+
+.crypto-pair {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+.dropdown-icon,
+.stat-icon {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  display: inline-block;
+  width: 14px;
+  text-align: center;
+}
+
+.stat-icon {
+  margin-right: 4px;
+}
+
+.crypto-price {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #00C076;
+}
+
+.divider-vertical {
+  height: 40px;
+  width: 1px;
+  background-color: #32383F;
+  margin: 0 4px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+  padding: 0 8px;
+}
+
+.stat-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+}
+
+.stat-value.positive {
+  color: #10b981;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 280px;
+  background-color: #20252B;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  margin-top: 8px;
+  padding: 12px 0;
+  border: 1px solid #32383F;
+}
+
+.dropdown-header {
+  padding: 0 16px 12px;
+  border-bottom: 1px solid #32383F;
+}
+
+.dropdown-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 8px 8px 32px;
+  background-color: #161A1E;
+  border: 1px solid #32383F;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4F9DEE;
+}
+
+.currency-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.currency-tab {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #94a3b8;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.currency-tab.active {
+  background-color: #4F9DEE;
+  color: white;
+}
+
+.dropdown-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #2C3138;
+}
+
+.pair-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.pair-price {
+  margin: 0 12px;
+  color: white;
+}
+
+.pair-change {
+  color: #10b981;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .crypto-navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .crypto-main {
+    order: 1;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #32383F;
+  }
+  
+  .divider-vertical {
+    display: none;
+  }
+  
+  .stat-item {
+    min-width: calc(50% - 12px);
+    padding: 4px 0;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  
+  .stat-value {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .crypto-navbar {
+    gap: 8px;
+  }
+  
+  .stat-item {
+    min-width: calc(50% - 8px);
+  }
+  
+  .crypto-price {
+    font-size: 1rem;
+  }
+  
+  .crypto-pair {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* CryptoChart */
+/* Main container */
+.crypto-chart {
+  width: 100%;
+  height: 600px;
+  background-color: #1e2430;
+  color: #e5e7eb;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  margin-top: 40px;
+}
+
+/* Header styles */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.time-selectors {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.time-button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  height: 32px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.time-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.time-button.active {
+  background-color: #4b5563;
+  color: #f9fafb;
+}
+
+.divider {
+  border-left: 1px solid #4b5563;
+  height: 32px;
+  margin: 0 8px;
+}
+
+.indicator-button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.indicator-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.maximize-button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+}
+
+.maximize-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.icon-small {
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+}
+
+/* Ticker info styles */
+.ticker-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ticker-name {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.ticker-checkbox {
+  margin-right: 4px;
+  background-color: #4b5563;
+  border-color: #6b7280;
+  border-radius: 2px;
+}
+
+.ticker-symbol {
+  font-weight: 600;
+}
+
+.price-info {
+  margin-right: 16px;
+}
+
+.price-change,
+.price-amplitude {
+  margin-right: 16px;
+}
+
+.green {
+  color: #4ade80;
+}
+
+.red {
+  color: #ef4444;
+}
+
+.volume-value {
+  color: #f9fafb;
+}
+
+/* Chart styles */
+.main-chart {
+  height: 250px;
+  margin-bottom: 16px;
+}
+
+.current-price-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.current-price {
+  background-color: #4ade80;
+  color: white;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.volume-chart {
+  height: 250px;
+}
+
+.volume-info {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.volume-btc {
+  color: #9ca3af;
+  margin-right: 24px;
+}
+
+.volume-usd {
+  color: #9ca3af;
+}
+
+/* Tooltip styles */
+.custom-tooltip {
+  background-color: rgba(30, 36, 48, 0.9);
+  border: 1px solid #4b5563;
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: #f9fafb;
+  font-size: 12px;
+}
+
+.tooltip-date {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tooltip-price {
+  color: #4ade80;
+  margin-bottom: 2px;
+}
+
+.tooltip-open,
+.tooltip-high,
+.tooltip-low {
+  margin-bottom: 2px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .crypto-chart {
+    height: auto;
+    padding: 12px;
+    margin-top: 20px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .time-selectors {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    flex-wrap: nowrap;
+  }
+  
+  .time-button {
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  
+  .ticker-info {
+    font-size: 12px;
+    gap: 4px;
+  }
+  
+  .price-info,
+  .price-change,
+  .price-amplitude {
+    margin-right: 8px;
+  }
+  
+  .main-chart,
+  .volume-chart {
+    height: 200px;
+  }
+  
+  .volume-info {
+    font-size: 12px;
+  }
+  
+  .volume-btc {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticker-info {
+    font-size: 11px;
+  }
+  
+  .main-chart,
+  .volume-chart {
+    height: 180px;
+  }
+  
+  .time-button {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+  
+  .indicator-button {
+    font-size: 11px;
+  }
+}
+
+/* Main container */
+.payment-container {
+  display: flex;
+  width: 100%;
+  margin: 50px auto;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Left Section - Order Book */
+.order-book-section {
+  flex: 1;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #1e222d;
+  border-radius: 8px;
+}
+
+/* Right Section - Trading Form */
+.trading-form-section {
+  flex: 1;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #1e222d;
+  border-radius: 8px;
+}
+
+/* Mobile Trade Button */
+.mobile-trade-button {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-trade-button.buy {
+  background: linear-gradient(to right, #6c5ce7, #e84393);
+}
+
+.mobile-trade-button.sell {
+  background: linear-gradient(to right, #e84393, #6c5ce7);
+}
+
+/* Drawer Styles */
+.drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1e222d;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 20px;
+  z-index: 101;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.drawer.open {
+  transform: translateY(0);
+}
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.drawer-close {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.drawer-content {
+  padding-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .payment-container {
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  
+  .order-book-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .trading-form-section {
+    display: none;
+  }
+  
+  .mobile-trade-button {
+    display: block;
+  }
+  
+  /* Adjust order book for mobile */
+  .order-book-view-options {
+    gap: 10px;
+  }
+  
+  .order-book-table {
+    font-size: 12px;
+  }
+  
+  .price-col, .amount-col, .total-col {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .order-row {
+    padding: 4px 0;
+  }
+  
+  .price-indicator {
+    padding: 8px 0;
+  }
+}
+
+/* Rest of the CSS remains the same as before */
+.order-book-header {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tab {
+  padding: 8px 15px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.tab.active {
+  opacity: 1;
+  color: #fff;
+}
+
+.order-book-view-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+.view-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.view-option.active {
+  opacity: 1;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bar {
+  width: 15px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.depth-selector {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-header {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+.price-col,
+.amount-col,
+.total-col {
+  flex: 1;
+}
+
+.price-col span,
+.amount-col span {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.order-row {
+  display: flex;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.sell-orders .price-col {
+  color: #ff5b5b;
+}
+
+.buy-orders .price-col {
+  color: #00c076;
+}
+
+.price-indicator {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+}
+
+.current-price {
+  font-weight: bold;
+}
+
+.price-change {
+  font-size: 12px;
+}
+
+.price-change.up {
+  color: #00c076;
+}
+
+/* Trading Form Section */
+.trading-tabs {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.trading-tabs .tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.trading-tabs .tab.active {
+  background-color: #6c5ce7;
+}
+
+.order-type-selector {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.type-option {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.type-option.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.form-group label span {
+  opacity: 0.7;
+}
+
+.input-with-currency {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.input-with-currency input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.input-with-currency input:focus {
+  outline: none;
+}
+
+.currency {
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.input-value {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.action-button.buy {
+  background: linear-gradient(to right, #6c5ce7, #e84393);
+}
+
+.action-button.sell {
+  background: linear-gradient(to right, #e84393, #6c5ce7);
+}
+
+.account-info {
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.value-with-currency {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.currency-selector {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.value.available {
+  text-align: right;
+}
+
+.deposit-button {
+  width: 50%;
+  padding: 10px;
+  background-color: #2764FF;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* App.jsx */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  gap: 20px; /* Adds space between the chart and payment components */
+  padding: 20px;
+}
+
+/* These styles will make CryptoChart appear on the left and Payment on the right */
+.CryptoChart {
+  flex: 2; /* Takes 2/3 of the space (adjust as needed) */
+  min-width: 0; /* Prevents overflow on small screens */
+}
+
+.Payment {
+  flex: 1; /* Takes 1/3 of the space (adjust as needed) */
+  min-width: 0; /* Prevents overflow on small screens */
+}
+
+/* Responsive layout - stack on smaller screens */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .CryptoChart, .Payment {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 480px) {
+  .content-container {
+    padding: 8px;
+    gap: 10px;
+  }
+}
+
+
+/* Orders */
+.orders-container {
+  background-color: #1a1e25;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 70%;
+  height: 500px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+.tabs-container {
+  display: flex;
+  background-color: #20252b;
+  padding: 0;
+  border-radius: 6px;
+  margin: 15px 15px 0;
+  width: fit-content;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  color: #8a8f98;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #ffffff;
+}
+
+.tab-button.active {
+  color: #ffffff;
+  background-color: #21262c;
+  border-radius: 6px;
+}
+
+.orders-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 76px);
+  padding: 20px;
+}
+
+.empty-state {
+  text-align: center;
+  max-width: 400px;
+}
+
+.empty-state h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #8a8f98;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Mobile responsiveness */
+@media only screen and (max-width: 768px) {
+  .orders-container {
+    width: 90%;
+  }
+}
