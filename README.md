@@ -12,5 +12,5 @@ API Integration
 
 Due to the limited time, I wasn't able to fully complete the API integration. One of the challenges I faced was the lack of sufficient or well-documented API endpoints, which consumed a significant amount of time. Despite that, I managed to begin the implementation. While it requires some debugging and refinement, I believe with additional time, I could have completed it as intended.
 
-Overall, I found the assessment focused on building a cryptocurrency-related website, both engaging and insightful. It was a great opportunity to apply my frontend development skills in a real-world scenario, and I enjoyed working on it.
+Overall, I found the assessment focused on building a cryptocurrency-related website, both engaging and insightful. It was a great opportunity to apply my frontend development skills in this test, and I enjoyed working on it.
 
