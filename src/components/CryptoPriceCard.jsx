@@ -27,7 +27,7 @@ const CryptoPriceCard = () => {
         <div className="pair-container" onClick={toggleDropdown}>
           <div className="coin-images">
             <img 
-              src="/public/images/bitcoin.jpg" 
+              src="/images/bitcoin.jpg" 
               alt="BTC" 
               className="coin-image btc" 
             />
